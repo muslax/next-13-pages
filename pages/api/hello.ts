@@ -16,10 +16,12 @@
 import type { NextRequest } from 'next/server'
 
 export const config = {
+  // Needs to exists beside already set globally in next.config.js
   runtime: 'experimental-edge',
 }
 
 export default async function (req: NextRequest) {
+  console.log("Runtime:", process.env.NEXT_RUNTIME);
   return new Response(
     JSON.stringify({ name: 'John Doe Edge' }),
     // {      status: 200,      headers: {        'Content-Type': 'application/json'      }    }
