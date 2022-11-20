@@ -20,9 +20,9 @@ export const config = {
   runtime: 'experimental-edge',
 }
 
-export default async function (req: NextRequest, env: any) {
+export default async function (req: NextRequest, context: any) {
   console.log("Runtime:", process.env.NEXT_RUNTIME);
-  const { results } = await env.DB.prepare(
+  const { results } = await context.env.DB.prepare(
     "SELECT * FROM Customers WHERE CompanyName = ?"
   ).bind("Bs Beverages").all();
 
