@@ -20,16 +20,17 @@ export const config = {
   runtime: 'experimental-edge',
 }
 
-export default async function (req: NextRequest, context: any) {
+export default async function (req: NextRequest) {
   console.log("Runtime:", process.env.NEXT_RUNTIME);
-  const { results } = await context.env.DB.prepare(
-    "SELECT * FROM Customers WHERE CompanyName = ?"
-  ).bind("Bs Beverages").all();
+  // const { results } = await context.env.DB.prepare(
+  //   "SELECT * FROM Customers WHERE CompanyName = ?"
+  // ).bind("Bs Beverages").all();
 
+  const rs = await fetch('https://d1-test-project.muslax.workers.dev/api/beverages');
 
   return new Response(
     // JSON.stringify({ name: 'John Doe Edge' }),
-    JSON.stringify( results ),
+    JSON.stringify( await rs.json() ),
     {
       status: 200,
       headers: {
