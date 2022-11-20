@@ -20,11 +20,16 @@ export const config = {
   runtime: 'experimental-edge',
 }
 
-export default async function (req: NextRequest) {
+export default async function (req: NextRequest, env: any) {
   console.log("Runtime:", process.env.NEXT_RUNTIME);
+  const { results } = await env.DB.prepare(
+    "SELECT * FROM Customers WHERE CompanyName = ?"
+  ).bind("Bs Beverages").all();
+
+
   return new Response(
-    JSON.stringify({ name: 'John Doe Edge' }),
-    // {      status: 200,      headers: {        'Content-Type': 'application/json'      }    }
+    // JSON.stringify({ name: 'John Doe Edge' }),
+    JSON.stringify( results ),
     {
       status: 200,
       headers: {
