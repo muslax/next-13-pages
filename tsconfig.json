@@ -29,7 +29,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "functions/api/halo.js"
+    "functions/api/test.js",
+    "functions/api/index.js"
   ],
   "exclude": [
     "node_modules"

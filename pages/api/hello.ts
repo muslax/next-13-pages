@@ -1,18 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-// import type { NextApiRequest, NextApiResponse } from 'next'
-
-// type Data = {
-//   name: string
-// }
-
-// export default function handler(
-//   req: NextApiRequest,
-//   res: NextApiResponse<Data>
-// ) {
-//   res.status(200).json({ name: 'John Doe' })
-// }
-
-// Next.js Edge API Routes: https://nextjs.org/docs/api-routes/edge-api-routes
 import type { NextRequest } from 'next/server'
 
 export const config = {
@@ -26,11 +11,14 @@ export default async function (req: NextRequest) {
   //   "SELECT * FROM Customers WHERE CompanyName = ?"
   // ).bind("Bs Beverages").all();
 
-  const rs = await fetch('https://d1-test-project.muslax.workers.dev/api/beverages');
+  const start =  new Date().getTime();
+  const rs = await fetch('https://chinook.muslax.workers.dev/api/genres');
+  console.log('Time:', new Date().getTime() - start);
+  const data = await rs.json();
 
   return new Response(
     // JSON.stringify({ name: 'John Doe Edge' }),
-    JSON.stringify( await rs.json() ),
+    JSON.stringify( data ),
     {
       status: 200,
       headers: {
