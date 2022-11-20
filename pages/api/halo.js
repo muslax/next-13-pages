@@ -1,4 +1,4 @@
-export async function onRequest(context) {
+export default async function onRequest(context) {
   // Contents of context object
   try {
     const {
