@@ -1,0 +1,12 @@
+name = "next-13-pages"
+compatibility_date = "2022-11-20"
+
+kv_namespaces = [
+    { binding = "HONOKV", id = "0ea6a743cfb64182941b111e9d50f6f0", preview_id = "0ea6a743cfb64182941b111e9d50f6f0" }
+]
+
+[[ d1_databases ]]
+binding = "HONODB" # i.e. available in your Worker on env.DB
+database_name = "honodb"
+database_id = "3302e9a5-1535-4e6b-9ec2-bd88b1b727eb"
+preview_database_id = "3302e9a5-1535-4e6b-9ec2-bd88b1b727eb"
