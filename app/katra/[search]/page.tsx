@@ -7,12 +7,12 @@ async function getData(search: string) {
 }
 
 export default async function Home({ params }: { params: { search: string } }) {
-  const data = await getData(params.search);
+  // const data = await getData(params.search);
   return (
     <div className="">
       <main className="">
-        <h1 className="x">Next.js 13 on CF Pages!</h1>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+        <h1 className="x">Search: {params.search}</h1>
+        {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       </main>
     </div>
   );
